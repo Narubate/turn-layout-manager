@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 peek,
                 views.rotate.isChecked());
         views.list.setLayoutManager(layoutManager);
+        LinearSnapHelper snapHelper = new LinearSnapHelper();
+        snapHelper.attachToRecyclerView(views.list);
         views.list.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         views.radius.setOnSeekBarChangeListener(radiusListener);
